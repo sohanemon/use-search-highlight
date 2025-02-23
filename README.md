@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# useSearchHighlight Hook
 
-## Getting Started
+The `useSearchHighlight` hook is a custom React hook that enables efficient text highlighting within a specified container element using the CSS Custom Highlight API. This approach allows for dynamic and performance-friendly text highlighting without modifying the DOM structure.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Dynamic Highlighting**: Highlights text within a specified container based on the provided search term.
+- **Performance Optimized**: Utilizes the CSS Custom Highlight API to apply styles without altering the DOM, ensuring efficient rendering.
+- **Customizable**: Allows specifying the container element and initial search term.
+
+## Installation
+
+Ensure your project supports the CSS Custom Highlight API, as browser compatibility may vary. For more information, refer to the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API).
+
+## Usage
+
+Import the `useSearchHighlight` hook into your component:
+
+
+```tsx
+import { useSearchHighlight } from './path/to/useSearchHighlight';
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Use the hook within your component, specifying the container selector and initial search term:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+```tsx
+const MyComponent = () => {
+  const { searchTerm, setSearchTerm } = useSearchHighlight('#my-container', 'initial search term');
 
-To learn more about Next.js, take a look at the following resources:
+  // Your component logic
+};
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+In your CSS, define the highlight styles using the `::highlight` pseudo-element:
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```css
+::highlight(search-highlight) {
+  background-color: yellow;
+  color: black;
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Replace `'search-highlight'` with the identifier used in your hook if different.
+
+## Browser Compatibility
+
+The CSS Custom Highlight API is a working draft and may not be fully supported across all browsers. Developers should verify compatibility and consider fallbacks for unsupported browsers. For more information, refer to the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API).
+
+## License
+
+This project is licensed under the MIT License. 
