@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 type UseSearchHighlightReturn = {
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  initialValue?: string
 };
 
-export const useSearchHighlight = (containerSelector: string = 'body'): UseSearchHighlightReturn => {
-  const [searchTerm, setSearchTerm] = useState('');
+export const useSearchHighlight = (containerSelector: string = 'body', initialValue = ''): UseSearchHighlightReturn => {
+  const [searchTerm, setSearchTerm] = useState(initialValue);
 
   useEffect(() => {
     if (!window.CSS || !CSS.highlights) {
