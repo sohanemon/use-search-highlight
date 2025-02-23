@@ -2,6 +2,8 @@
 
 The `useSearchHighlight` hook is a custom React hook that enables efficient text highlighting within a specified container element using the CSS Custom Highlight API. This approach allows for dynamic and performance-friendly text highlighting without modifying the DOM structure.
 
+![main-website](main.png)
+
 ## Features
 
 - **Dynamic Highlighting**: Highlights text within a specified container based on the provided search term.
