@@ -13,7 +13,7 @@
     "@dnd-kit/sortable": "^10.0.0",
     "highlight-search-term": "^1.0.3",
     "lucide-react": "^0.475.0",
-    "next": "15.1.7",
+    "next": "15.5.25",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
